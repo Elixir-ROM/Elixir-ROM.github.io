@@ -3194,6 +3194,7 @@ MaterialLayout.prototype.CssClasses_ = {
     DRAWER: 'mdl-layout__drawer',
     CONTENT: 'mdl-layout__content',
     DRAWER_BTN: 'mdl-layout__drawer-button',
+    DRAWER_BTN_BCK: 'mdl-layout__drawer-button_back',
     ICON: 'material-icons',
     JS_RIPPLE_EFFECT: 'mdl-js-ripple-effect',
     RIPPLE_CONTAINER: 'mdl-layout__tab-ripple-container',
@@ -3341,15 +3342,18 @@ MaterialLayout.prototype.resetPanelState_ = function (panels) {
   */
 MaterialLayout.prototype.toggleDrawer = function () {
     var drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+    var drawerButtonBack = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN_BCK); 
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     // Set accessibility properties.
     if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
         this.drawer_.setAttribute('aria-hidden', 'false');
         drawerButton.setAttribute('aria-expanded', 'true');
+        drawerButtonBack.setAttribute('aria-expanded', 'true');
     } else {
         this.drawer_.setAttribute('aria-hidden', 'true');
         drawerButton.setAttribute('aria-expanded', 'false');
+        drawerButtonBack.setAttribute('aria-expanded', 'false');
     }
 };
 MaterialLayout.prototype['toggleDrawer'] = MaterialLayout.prototype.toggleDrawer;
@@ -3427,6 +3431,7 @@ MaterialLayout.prototype.init = function () {
         // Add drawer toggling button to our layout, if we have an openable drawer.
         if (this.drawer_) {
             var drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
+            var drawerButtonBack = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN_BCK);
             if (!drawerButton) {
                 drawerButton = document.createElement('div');
                 drawerButton.setAttribute('aria-expanded', 'false');
@@ -3438,15 +3443,30 @@ MaterialLayout.prototype.init = function () {
                 drawerButtonIcon.innerHTML = this.Constant_.MENU_ICON;
                 drawerButton.appendChild(drawerButtonIcon);
             }
+            if (!drawerButtonBack) {
+                drawerButtonBack = document.createElement('div');
+                drawerButtonBack.setAttribute('aria-expanded', 'false');
+                drawerButtonBack.setAttribute('role', 'button');
+                drawerButtonBack.setAttribute('tabindex', '0');
+                drawerButtonBack.classList.add(this.CssClasses_.DRAWER_BTN_BCK);
+                var drawerButtonIcon = document.createElement('i');
+                drawerButtonIcon.classList.add(this.CssClasses_.ICON);
+                drawerButtonIcon.innerHTML = this.Constant_.MENU_ICON;
+                drawerButton.appendChild(drawerButtonIcon);
+            }
             if (this.drawer_.classList.contains(this.CssClasses_.ON_LARGE_SCREEN)) {
                 //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
                 drawerButton.classList.add(this.CssClasses_.ON_LARGE_SCREEN);
+                drawerButtonBack.classList.add(this.CssClasses_.ON_LARGE_SCREEN);
             } else if (this.drawer_.classList.contains(this.CssClasses_.ON_SMALL_SCREEN)) {
                 //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
                 drawerButton.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
+                drawerButtonBack.classList.add(this.CssClasses_.ON_SMALL_SCREEN);
             }
             drawerButton.addEventListener('click', this.drawerToggleHandler_.bind(this));
             drawerButton.addEventListener('keydown', this.drawerToggleHandler_.bind(this));
+            drawerButtonBack.addEventListener('click', this.drawerToggleHandler_.bind(this));
+            drawerButtonBack.addEventListener('keydown', this.drawerToggleHandler_.bind(this));
             // Add a class if the layout has a drawer, for altering the left padding.
             // Adds the HAS_DRAWER to the elements since this.header_ may or may
             // not be present.

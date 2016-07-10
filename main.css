@@ -24,18 +24,44 @@ nav > a > i {
 your background is light. */
     color: white;
 }
-#logo_main {
-    width="25%";
-}
+.logo_main {
+    width: 25%;
+    }
+
 
 @media screen and (min-width: 961px) {
     /* Desktop layout stuff*/
+    .logo_main {
+    width: 25%;
+    }
+    
+    .logo_navigation {
+    display: none;
+    }
+    
+    .span-drawer-button_back {
+        display: none
+    }
 }
 
 @media screen and (min-width: 501px) and (max-width: 960px) {
     /* Tablet layout stuff*/
+    .logo_main {
+    width: 50%;
+    }
+    
+    .logo_navigation {
+    display: none;
+    }
+    
+    .span-drawer-button_back {
+        display: none
+    }
 }
 
 @media screen and (max-width: 500px) {
     /* Mobile layout stuff*/
+    .logo_main {
+    width: 100%;
+    }
 }

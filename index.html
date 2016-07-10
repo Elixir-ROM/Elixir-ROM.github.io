@@ -28,9 +28,9 @@
                 <div>
                    <a style="text-decoration: none;" href="https://elixir-rom.github.io/index.html">
                        <div style="height: 1px; overflow: inherit;">
-                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="25%"
+                            <svg  class="logo_main" version="1.0" xmlns="http://www.w3.org/2000/svg" 
                                  viewBox="0 0 10000.000000 2500.000000"
-                                preserveAspectRatio="xMidYMid meet" id="logo_main">
+                                preserveAspectRatio="xMidYMid meet">
                                 <polygon fill="#A1A1A1" points="5000,2500 6050,1450 5950,1350 "/>
                                 <polygon fill="#8C8C8C" points="6050,1450 9150,1250 9050,1150 5950,1350 "/>
                                 <polygon fill="#A1A1A1" points="9150,1250 10000,0 9050,1150 "/>
@@ -70,8 +70,18 @@
             </center>
       </header>
       <div class="mdl-layout__drawer" style="position: fixed; top: 0;">
-        <span style="margin: 10%;">
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100%"
+        <span style="padding: 10px; margin: 10px;" class="span-drawer-button_back">
+            <div aria-expanded="true" role="button" tabindex="" class="mdl-layout__drawer-button_back" style="position: fixed;"><i class="material-icons">&#xE5C4;</i></div>
+        </span>
+
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE88A;</i>Home</a>
+            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE2C4;</i>Downloads</a>
+            <a class="mdl-navigation__link" href="https://github.com/Elixir-ROM"><i class="material-icons">&#xE250;</i>Github</a> <!-- placeholder -->
+            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE250;</i>Link</a> <!-- placeholder -->
+        </nav>
+        <span style="margin: 5%; margin-top: 48px">
+            <svg class="logo_navigation" version="1.0" xmlns="http://www.w3.org/2000/svg" width="100%"
             viewBox="0 0 10000.000000 2500.000000"
             preserveAspectRatio="xMidYMid meet">
             <polygon points="5000,2500 6050,1450 5950,1350" style="fill:#a1a1a1" />
@@ -95,21 +105,14 @@
             <polygon points="2720,1264 2720,1158 2235,675" style="fill:#bfbfbf" />
             <polygon points="5000,2500 4050,1350 4150,1250" style="fill:#bfbfbf" />
 
-            </svg>  
+            </svg>
         </span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE88A;</i>Home</a>
-            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE2C4;</i>Downloads</a>
-            <a class="mdl-navigation__link" href="https://github.com/Elixir-ROM"><i class="material-icons">&#xE250;</i>Github</a> <!-- placeholder -->
-            <a class="mdl-navigation__link" href=""><i class="material-icons">&#xE250;</i>Link</a> <!-- placeholder -->
-        </nav>
       </div>
-    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="position: fixed;"><i class="material-icons">&#58834;</i></div>
+    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" style="position: fixed;"><i class="material-icons">&#xE5D2;</i></div>
     <main class="mdl-layout__content" style="position: absolute; width: 100%, height: 100%; top: 0;">
         <!-- content goes here -->
     </main>
     </div>
-    
     
 </body>
 </html>
